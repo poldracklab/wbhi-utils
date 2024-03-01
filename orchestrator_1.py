@@ -36,9 +36,16 @@ redcap_gear = fw.lookup('gears/wbhi-redcap')
 deid_gear = fw.lookup('gears/deid-export')
 
 ignore_until_n_days_old = 1
-site_list = ['ucsb']
-destination_project_path = 'wbhi/wbhi'
+site_list = ['ucsb', 'uci']
+wbhi_project_path = 'wbhi/wbhi'
+wbhi_project = fw.lookup(wbhi_project_path)
+deid_config = {
+    'project_path': wbhi_project_path,
+    'overwrite_files': True,
+}
 
+# Run redcap gear in each site's project
+redcap_job_list = []
 for site in site_list:
     source_project_path = site + '/Inbound Data'
     #source_project_path = 'joe_test/ucsb_copy3'
@@ -51,32 +58,60 @@ for site in site_list:
         'ignore_until_n_days_old': ignore_until_n_days_old
     }
     redcap_job_id = run_gear(redcap_gear, None, redcap_config, source_project)
+    redcap_job_list.append((site, redcap_job_id))
+
+# Run deid gear after completion of redcap gear for each site
+deid_jobs_all = []
+for site, redcap_job_id in redcap_job_list:
+    start = time.time()
     while fw.get_job(redcap_job_id).state.name in ('PENDING', 'RUNNING'): 
-        print(fw.get_job(redcap_job_id).state.name)
         time.sleep(5)
+    end = time.time()
+    print(end - start)
     if fw.get_job(redcap_job_id).state.name != 'COMPLETE':
-        print('wbhi-redcap gear failed')
+        print(f'wbhi-redcap gear failed for {site}')
         continue
         
     to_deid_list =  [s for s in source_project.sessions() if 'wbhi' in s.tags and 'deid-wbhi' not in s.tags]
     deid_jobs = []
     
     for session in to_deid_list:
-        deid_config = {
-            'project_path': destination_project_path,
-            'overwrite_files': True,
-        }
         deid_job_id = run_gear(deid_gear, deid_inputs, deid_config, session)
         deid_jobs.append((deid_job_id, session))
-    
+    deid_jobs_all.append((site, deid_jobs))
+
+# Wait for completeion of deid jobs and tag 'deid-wbhi'  
+for site, deid_jobs in deid_jobs_all:
     for job_id, session in deid_jobs:
+        start = time.time()
         while fw.get_job(redcap_job_id).state.name in ('PENDING', 'RUNNING'):
             time.sleep(5)
+        end = time.time()
+        print(end - start)
         if fw.get_job(redcap_job_id).state.name != 'COMPLETE':
-            print('wbhi-redcap gear failed')
+            print(f'deid gear failed for {job_id}')
             continue
         else:
             session.add_tag('deid-wbhi')
-            
+
+# Wait for completion of all jobs in wbhi project
+start = time.time()
+while True:
+    time.sleep(30)
+    jobs = fw.get_current_user_jobs()['jobs']
+    wbhi_jobs = [j for j in jobs if 'wbhi' in j.related_container_ids]
+    current_wbhi_jobs = [j.state for j in wbhi_jobs if j.state not in ('complete', 'failed')]
+    print(current_wbhi_jobs)
+    if not current_wbhi_jobs:
+        break
+end = time.time()
+print(end - start)
+
+# Run bids-pre-curate gear
+wbhi_subs = wbhi_project.subjects()
+wbhi_subs_no_precurate = [s for s in wbhi_subs if 'pre-curate' not in s.tags]
+
+
+
     
     
