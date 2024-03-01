@@ -11,6 +11,6 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
-      - run: pip install -r requirements.txt
+      - run: pip install flywheel-sdk==18.0.0
       - name: Run Python Script
         run: python orchestrator_1.py
