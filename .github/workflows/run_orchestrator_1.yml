@@ -1,6 +1,8 @@
 name: run-orchestrator-1
 run-name: Runs orchestrator_1.py
 on:
+  schedule:
+    - cron: '0 1 * * 2-7'
   workflow_dispatch:
 jobs:
   run-script:
