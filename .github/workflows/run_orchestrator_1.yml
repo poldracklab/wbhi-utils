@@ -14,3 +14,6 @@ jobs:
       - run: pip install flywheel-sdk==18.0.0
       - name: Run Python Script
         run: python orchestrator_1.py
+        env:
+          FW_API_KEY: ${{ secrets.FW_API_KEY }}
+          REDCAP_API_KEY: ${{ secrets.REDCAP_API_KEY }}
