@@ -15,6 +15,7 @@ jobs:
           cache: 'pip'
       - run: pip install flywheel-sdk==18.0.0
       - name: Run Python Script
+        if: github.event.schedule != '49 12 * * 1'
         run: python orchestrator_1.py
         env:
           FW_API_KEY: ${{ secrets.FW_API_KEY }}
