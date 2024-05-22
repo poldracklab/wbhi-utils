@@ -1,16 +1,26 @@
 import re
 
 # Parse a dicom header and return the pi-id and sub-id
-def parse_pi_sub(dcm_hdr, site): 
+def parse_pi_sub(dcm_hdr: dict, site: str) -> str:
+    """Parse a dicom header and return the PI-ID"""
     if site == 'ucsb':
-        pi_id, sub_id = re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)
+        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[0]
     elif site == 'uci':
-        pi_id = re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"])[0]
-        sub_id = re.split('[^0-9a-zA-Z]', dcm_hdr["PatientID"])[0]
+        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"])[0]
     elif site == 'ucb':
-        pi_id = re.split(' ', dcm_hdr["StudyDescription"])[0]
-        sub_id = dcm_hdr["PatientName"]
+        return re.split(' ', dcm_hdr["StudyDescription"])[0]
     else:
-        pi_id, sub_id = re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)
+        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[0]
     
     return pi_id, sub_id
+
+def parse_sub(dcm_hdr: dict, site: str) -> str:
+    """Parse a dicom header and return the Sub-ID"""
+    if site == 'ucsb':
+        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[1]
+    elif site == 'uci':
+        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientID"])[0]
+    elif site == 'ucb':
+        return dcm_hdr["PatientName"]
+    else:
+        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[1]
