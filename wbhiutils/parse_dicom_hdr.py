@@ -1,7 +1,7 @@
 import re
 
 # Parse a dicom header and return the pi-id and sub-id
-def parse_pi_sub(dcm_hdr: dict, site: str) -> str:
+def parse_pi(dcm_hdr: dict, site: str) -> str:
     """Parse a dicom header and return the PI-ID"""
     if site == 'ucsb':
         return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[0]
