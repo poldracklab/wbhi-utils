@@ -6,9 +6,9 @@ def parse_pi(dcm_hdr: dict, site: str) -> str:
     if site == 'ucsb':
         return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[0]
     elif site == 'uci':
-        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"])[0]
+        return re.split('__', dcm_hdr["PatientName"], maxsplit=1)[0]
     elif site == 'ucb':
-        return re.split(' ', dcm_hdr["StudyDescription"])[0]
+        return re.split(' ', dcm_hdr["StudyDescription"], maxsplit=1)[0]
     else:
         return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[0]
     
@@ -19,7 +19,7 @@ def parse_sub(dcm_hdr: dict, site: str) -> str:
     if site == 'ucsb':
         return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[1]
     elif site == 'uci':
-        return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientID"])[0]
+        return re.split('__', dcm_hdr["PatientID"], maxsplit=1)[0]
     elif site == 'ucb':
         return dcm_hdr["PatientName"]
     else:
