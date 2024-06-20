@@ -14,7 +14,8 @@ SITE_KEY = {
 REDCAP_KEY = {
     "am_pm": {
         "1": "am",
-        "2": "pm"
+        "2": "pm",
+        "":""
     }
 }
 SITE_LIST = ["ucsb", "uci", "ucb"]
