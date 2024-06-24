@@ -11,6 +11,7 @@ SITE_KEY = {
         "ucd": "E",
         "stanford": "F"
     }
+SITE_KEY_REVERSE = {v: k for k, v in SITE_KEY.items()}
 REDCAP_KEY = {
     "am_pm": {
         "1": "am",
