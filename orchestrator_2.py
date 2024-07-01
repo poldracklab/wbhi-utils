@@ -41,7 +41,7 @@ def main():
         'gmail_password': os.environ.get('WBHI_BOT_PASSWORD')
     }
     
-    run_gear(redcap_gear, None, redcap_config, pre_deid_project)
+    run_gear(email_gear, None, email_config, pre_deid_project)
 
 
 if __name__ == "__main__":
