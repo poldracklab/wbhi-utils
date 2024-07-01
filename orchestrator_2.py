@@ -27,7 +27,7 @@ def run_gear(gear, inputs, config, dest, tags=None):
         log.debug('Submitted job %s', gear_job_id)
         return gear_job_id
     except flywheel.rest.ApiException:
-        log.exception('An exception was raised when attempting to submit a job for %s', file_obj.name)
+        log.exception('An exception was raised when attempting to submit a job %s', gear_job_id)
 
 def main():
     client = flywheel.Client(os.environ['FW_API_KEY']) 
