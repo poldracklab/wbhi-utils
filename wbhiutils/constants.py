@@ -20,7 +20,7 @@ REDCAP_KEY = {
     }
 }
 SITE_LIST = ["ucsb", "uci", "ucb"]
-EMAIL_DICT {
+EMAIL_DICT = {
     "admin": [
         "jbwexler@stanford.edu",
         "cmtaylor@ucsb.edu",
