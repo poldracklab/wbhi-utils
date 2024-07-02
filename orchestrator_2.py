@@ -27,10 +27,10 @@ def run_gear(gear, inputs, config, dest, tags=None):
         log.debug('Submitted job %s', gear_job_id)
         return gear_job_id
     except flywheel.rest.ApiException:
-        log.exception('An exception was raised when attempting to submit a job %s', gear_job_id)
+        log.exception('An exception was raised when attempting to submit a job %s', gear.label)
 
 def main():
-    client = flywheel.Client(os.environ['FW_API_KEY']) 
+    client = flywheel.Client(os.environ.get('FW_API_KEY')) 
     redcap_api_key = os.environ.get('REDCAP_API_KEY')
     
     email_gear = client.lookup('gears/wbhi-email')
