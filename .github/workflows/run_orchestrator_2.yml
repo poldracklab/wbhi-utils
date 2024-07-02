@@ -19,3 +19,4 @@ jobs:
         env:
           FW_API_KEY: ${{ secrets.FW_API_KEY }}
           REDCAP_API_KEY: ${{ secrets.REDCAP_API_KEY }}
+          WBHI_BOT_PASSWORD: ${{ secrets.WBHI_BOT_PASSWORD }}
