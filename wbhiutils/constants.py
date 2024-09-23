@@ -31,6 +31,6 @@ EMAIL_DICT = {
     "ucsb": ["kianasabugo@ucsb.edu"],
     "uci": ["lazer@uci.edu"],
     "ucb": ["binglis@berkeley.edu"],
-    "ucsd": ["adjacobson1@gmail.com", "r2barnes@health.ucsd.edu"]
+    "ucsd": ["ajacobson@health.ucsd.edu", "r2barnes@health.ucsd.edu"]
 }
 ADMIN_EMAIL = "jbwexler@stanford.edu"
