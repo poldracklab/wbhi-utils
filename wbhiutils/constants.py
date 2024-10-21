@@ -21,7 +21,7 @@ REDCAP_KEY = {
         "":""
     }
 }
-SITE_LIST = ["ucsb", "uci", "ucb", "ucsd"]
+SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf"]
 EMAIL_DICT = {
     "admin": [
         "jbwexler@stanford.edu",
@@ -29,7 +29,7 @@ EMAIL_DICT = {
         "buckholtz@stanford.edu",
         "markiewicz@stanford.edu"
     ],
-    "ucsb": ["kianasabugo@ucsb.edu", "kyliewoodman@ucsb.edu"],
+    "ucsb": ["kyliewoodman@ucsb.edu"],
     "uci": ["lazer@uci.edu", "avirovka@uci.edu"],
     "ucb": ["binglis@berkeley.edu", "sam.weiller@berkeley.edu"],
     "ucsd": ["ajacobson@health.ucsd.edu", "r2barnes@health.ucsd.edu"],
