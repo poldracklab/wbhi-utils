@@ -3,4 +3,4 @@ requires = ["setuptools", "wheel"]
 
 [project]
 name = "wbhiutils"
-version = "0.0.8"
+version = "0.0.9"
