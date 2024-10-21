@@ -10,7 +10,8 @@ SITE_KEY = {
     "uci": "D",
     "ucd": "E",
     "stanford": "F",
-    "ucsd": "G"
+    "ucsd": "G",
+    "ucr": "H"
     }
 SITE_KEY_REVERSE = {v: k for k, v in SITE_KEY.items()}
 REDCAP_KEY = {
@@ -28,9 +29,11 @@ EMAIL_DICT = {
         "buckholtz@stanford.edu",
         "markiewicz@stanford.edu"
     ],
-    "ucsb": ["kianasabugo@ucsb.edu"],
-    "uci": ["lazer@uci.edu"],
-    "ucb": ["binglis@berkeley.edu"],
-    "ucsd": ["ajacobson@health.ucsd.edu", "r2barnes@health.ucsd.edu"]
+    "ucsb": ["kianasabugo@ucsb.edu", "kyliewoodman@ucsb.edu"],
+    "uci": ["lazer@uci.edu", "avirovka@uci.edu"],
+    "ucb": ["binglis@berkeley.edu", "sam.weiller@berkeley.edu"],
+    "ucsd": ["ajacobson@health.ucsd.edu", "r2barnes@health.ucsd.edu"],
+    "ucsf": ["joseph.chen3@ucsf.edu"],
+    "ucr": ["xu.chen@ucr.edu"]
 }
 ADMIN_EMAIL = "jbwexler@stanford.edu"
