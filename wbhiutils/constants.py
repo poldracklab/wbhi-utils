@@ -22,6 +22,14 @@ REDCAP_KEY = {
     }
 }
 SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf"]
+SOFTWARE_DICT = {
+    "ucsb": "syngo MR E11",
+    "uci": "syngo MR E11",
+    "ucb": "syngo MR XA30",
+    "ucsd": "syngo MR E11",
+    "ucsf": "syngo MR E11",
+    "ucr": "syngo MR XA30"
+}
 EMAIL_DICT = {
     "admin": [
         "jbwexler@stanford.edu",
