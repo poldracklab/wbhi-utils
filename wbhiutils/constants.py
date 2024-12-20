@@ -21,7 +21,7 @@ REDCAP_KEY = {
         "":""
     }
 }
-SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf"]
+SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf", "ucr"]
 SOFTWARE_DICT = {
     "ucsb": "syngo MR E11",
     "uci": "syngo MR E11",
