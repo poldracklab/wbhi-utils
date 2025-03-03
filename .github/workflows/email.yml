@@ -1,4 +1,4 @@
-name: Submit Email Summary Gear
+name: Email Summary Gear
 
 on:
   schedule:
@@ -16,7 +16,7 @@ jobs:
         python-version: '3.12'
         cache: 'pip'
     - run: pip install flywheel-sdk==20.0.0
-    - name: Run Python Script
+    - name: Submit Email Summary gear
       run: python submit_email_gear.py
       env:
         FW_API_KEY: ${{ secrets.FW_API_KEY }}
