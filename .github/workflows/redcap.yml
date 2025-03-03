@@ -1,0 +1,21 @@
+name: Submit RedCap Gear
+
+on:
+  schedule:
+  - cron: '49 12 * * 2-7'
+  workflow_dispatch:
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+    - run: pip install flywheel-sdk==20.0.0
+    - name: Submit redcap gear
+      run: python submit_wbhi_redcap_gear.py
+      env:
+        FW_API_KEY: ${{ secrets.FW_API_KEY }}
+        REDCAP_API_KEY: ${{ secrets.REDCAP_API_KEY }}
