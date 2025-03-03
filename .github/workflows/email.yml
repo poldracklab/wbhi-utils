@@ -17,7 +17,7 @@ jobs:
         cache: 'pip'
     - run: pip install flywheel-sdk==20.0.0
     - name: Run Python Script
-      run: python orchestrator_2.py
+      run: python submit_email_gear.py
       env:
         FW_API_KEY: ${{ secrets.FW_API_KEY }}
         REDCAP_API_KEY: ${{ secrets.REDCAP_API_KEY }}
