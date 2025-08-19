@@ -43,7 +43,7 @@ EMAIL_DICT = {
     "uci": ["lazer@uci.edu", "avirovka@uci.edu"],
     "ucb": ["binglis@berkeley.edu", "sam.weiller@berkeley.edu"],
     "ucsd": ["ajacobson@health.ucsd.edu", "r2barnes@health.ucsd.edu"],
-    "ucsf": ["joseph.chen3@ucsf.edu"],
+    "ucsf": ["jonathan.bachman@ucsf.edu"],
     "ucr": ["xu.chen@ucr.edu"]
 }
 ADMIN_EMAIL = "jbwexler@stanford.edu"
