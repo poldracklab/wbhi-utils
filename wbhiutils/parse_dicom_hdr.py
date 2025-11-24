@@ -8,6 +8,8 @@ def parse_pi(dcm_hdr: dict[str, str], site: str) -> str:
     elif site == 'uci':
         return re.split('__', dcm_hdr["PatientName"], maxsplit=1)[0]
     elif site == 'ucb':
+        if dcm_hdr["StudyDescription"] == "AROC-T":
+            return "kober"
         return re.split(' ', dcm_hdr["StudyDescription"], maxsplit=1)[0]
     elif site == 'ucsd':
         return dcm_hdr["ReferringPhysicianName"]
