@@ -39,6 +39,7 @@ EMAIL_DICT = {
         "buckholtz@stanford.edu",
         "markiewicz@stanford.edu",
         "mathiasg@stanford.edu",
+        "nienrsu@berkeley.edu",
     ],
     "ucsb": ["kyliewoodman@ucsb.edu"],
     "uci": ["lazer@uci.edu", "avirovka@uci.edu"],
