@@ -29,14 +29,11 @@ def run_gear(gear, inputs, config, dest, tags=None):
 
 def main():
     client = flywheel.Client(os.environ['FW_API_KEY'])
-    redcap_api_key = os.environ['REDCAP_API_KEY']
 
     email_gear = client.lookup('gears/wbhi-email')
     pre_deid_project = client.lookup('wbhi/pre-deid')
     email_config = {
-        'redcap_api_key': redcap_api_key,
         'gmail_address': 'wbhi.bot@gmail.com',
-        'gmail_password': os.environ['WBHI_BOT_PASSWORD'],
     }
 
     run_gear(email_gear, None, email_config, pre_deid_project)
