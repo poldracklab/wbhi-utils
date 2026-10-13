@@ -29,12 +29,10 @@ def run_gear(gear, inputs, config, dest, tags=None):
 
 def main():
     client = flywheel.Client(os.environ['FW_API_KEY'])
-    redcap_api_key = os.environ['REDCAP_API_KEY']
 
     redcap_gear = client.lookup('gears/wbhi-redcap')
     pre_deid_project = client.lookup('wbhi/pre-deid')
     redcap_config = {
-        'redcap_api_key': redcap_api_key,
         'ignore_until_n_days_old': 1
     }
 
