@@ -18,6 +18,3 @@ jobs:
     - run: pip install flywheel-sdk==20.0.0
     - name: Submit RedCap gear
       run: python submit_redcap_gear.py
-      env:
-        FW_API_KEY: ${{ secrets.FW_API_KEY }}
-        REDCAP_API_KEY: ${{ secrets.REDCAP_API_KEY }}
