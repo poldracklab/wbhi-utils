@@ -10,7 +10,7 @@ SITE_KEY = {
     "ucb": "B",
     "ucsf": "C",
     "uci": "D",
-    "ucd": "E",
+    "ucdavis": "E",
     "stanford": "F",
     "ucsd": "G",
     "ucr": "H"
@@ -23,14 +23,15 @@ REDCAP_KEY = {
         "":""
     }
 }
-SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf", "ucr"]
+SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf", "ucr", "ucdavis"]
 SOFTWARE_DICT = {
     "ucsb": "syngo MR E11",
     "uci": "syngo MR XA30",
     "ucb": "syngo MR XA30",
     "ucsd": "syngo MR E11",
     "ucsf": "syngo MR E11",
-    "ucr": "syngo MR XA30"
+    "ucr": "syngo MR XA30",
+    "ucdavis": "syngo MR XA60",
 }
 EMAIL_DICT = {
     "admin": [
@@ -46,6 +47,7 @@ EMAIL_DICT = {
     "ucb": ["binglis@berkeley.edu", "sam.weiller@berkeley.edu"],
     "ucsd": ["ajacobson@health.ucsd.edu", "r2barnes@health.ucsd.edu"],
     "ucsf": ["jonathan.bachman@ucsf.edu"],
-    "ucr": ["xu.chen@ucr.edu"]
+    "ucr": ["xu.chen@ucr.edu", "jason.langley@ucr.edu"],
+    "ucdavis": ["scomartin@health.ucdavis.edu"],
 }
 ADMIN_EMAIL = "jbwexler@stanford.edu"
