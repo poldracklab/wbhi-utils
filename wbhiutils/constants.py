@@ -24,6 +24,9 @@ REDCAP_KEY = {
     }
 }
 SITE_LIST = ["ucsb", "uci", "ucb", "ucsd", "ucsf", "ucr", "ucdavis"]
+# Flywheel group -> REDCap site option/field suffix (e.g. mri_pi_ucd)
+REDCAP_SITE = {site: site for site in SITE_LIST} | {"ucdavis": "ucd"}
+REDCAP_SITE_REVERSE = {v: k for k, v in REDCAP_SITE.items()}
 SOFTWARE_DICT = {
     "ucsb": "syngo MR E11",
     "uci": "syngo MR XA30",
