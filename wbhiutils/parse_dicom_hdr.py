@@ -22,6 +22,11 @@ def parse_pi(dcm_hdr: dict[str, str], site: str) -> str:
         if match:
             return match.group(2)
         raise ValueError(f"Could not parse PI from StudyDescription: {dcm_hdr['StudyDescription']}")
+    elif site == 'ucdavis':
+        match = re.match(r"^(.+?)(?:_?Lab|\^| |$)", dcm_hdr["StudyDescription"].strip())
+        if match:
+            return match.group(1)
+        raise ValueError(f"Could not parse PI from StudyDescription: {dcm_hdr['StudyDescription']}")
     else:
         return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[0]
 
@@ -38,6 +43,8 @@ def parse_sub(dcm_hdr: dict[str, str], site: str) -> str:
     elif site == 'ucsf':
         return dcm_hdr["PatientID"]
     elif site == 'ucr':
+        return dcm_hdr["PatientName"]
+    elif site == 'ucdavis':
         return dcm_hdr["PatientName"]
     else:
         return re.split('[^0-9a-zA-Z]', dcm_hdr["PatientName"], maxsplit=1)[1]
