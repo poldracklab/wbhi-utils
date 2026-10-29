@@ -32,9 +32,7 @@ def main():
 
     redcap_gear = client.lookup('gears/wbhi-redcap')
     pre_deid_project = client.lookup('wbhi/pre-deid')
-    redcap_config = {
-        'archive': False
-    }
+    redcap_config = {}
 
     run_gear(redcap_gear, None, redcap_config, pre_deid_project)
 
